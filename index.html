@@ -2,22 +2,54 @@
 <html ng-app>
 	<head>
 		<title>Angular Note Taking</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="index.css">
 	</head>
 	<body>
 		<h1>Angular Note Taking!!</h1>
 
 		<div ng-controller="TodoCtrl">
 			<h2>Total todos:{{totalTodos}}</h2>
+			<ul class="list-unstyled">
+				<li ng-repeat="todo in todos">
+					<input type="checkbox" ng-model="todo.done">
+					<span class="done-{{todo.done}}">{{todo.text}}</span>
+				</li>
+			</ul>
+
+			<form class="form-horizontal">
+				<input type="text" ng-model="formTodoText" ng-model-instant>
+				{{formTodoText}}
+			</form>
+			<button class="btn btn-info" ng-click="addTodo()"><i class="glyphicon glyphicon-plus"></i>Add</button>
 		</div>
 
+		<!-- This won't work because it's out of scope -->
+		<!-- <div>
+			<ul class="unstyles">
+				<li ng-repeat="todo in todos">
+					{{todo.text}}
+				</li>
+			</ul>
+		</div>
+ -->
+
+ 	<!-- Now taht I have added the ng-controller to the div I can now have seperate Divs -->
+ 		<!-- <div ng-controller="TodoCtrl">
+ 			<ul class="unstyles">
+				<li ng-repeat="todo in todos">
+					{{todo.text}}
+				</li>
+			</ul>
+ 			
+ 		</div> -->
 		
 
 
 
 
 		<script type="text/javascript" src="https://code.angularjs.org/angular-1.0.0rc3.min.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+		<script type="text/javascript" src="https://documentcloud.github.com/underscore/underscore-min.js"></script>
 		<script type="text/javascript" src="todo.js"></script>
 
 	</body>
