@@ -9,7 +9,7 @@
 		<h1>Angular Note Taking!!</h1>
 
 		<div ng-controller="TodoCtrl">
-			<h2>Total todos:{{totalTodos}}</h2>
+			<h2>Total todos:{{getTotalTodos()}}</h2>
 			<ul class="list-unstyled">
 				<li ng-repeat="todo in todos">
 					<input type="checkbox" ng-model="todo.done">
@@ -21,7 +21,11 @@
 				<input type="text" ng-model="formTodoText" ng-model-instant>
 				{{formTodoText}}
 			</form>
-			<button class="btn btn-info" ng-click="addTodo()"><i class="glyphicon glyphicon-plus"></i>Add</button>
+
+			<button class="btn btn-info" ng-click="addTodo()"><i class="glyphicon glyphicon-plus"></i> Add</button>
+			
+			<button class="btn btn-danger" ng-click="clearCompleted()"><i class="glyphicon glyphicon-trash"></i> Clear Completed</button>
+
 		</div>
 
 		<!-- This won't work because it's out of scope -->

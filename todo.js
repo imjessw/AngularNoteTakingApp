@@ -5,7 +5,15 @@ function TodoCtrl($scope){
 	{text:"Build an App", done:false}
 	];
 
-	$scope.totalTodos=$scope.todos.length;
+	$scope.getTotalTodos= function(){
+		return $scope.todos.length;
+
+	};
+	$scope.clearCompleted= function(){
+		$scope.todos= _.filter($scope.todos, function(todo){
+			return !todo.done;
+		})
+	};
 
 	$scope.addTodo= function (argument) {
 		$scope.todos.push({text:$scope.formTodoText, done:false});
