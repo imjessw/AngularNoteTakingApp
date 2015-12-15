@@ -19,11 +19,13 @@
 
 			<form class="form-horizontal">
 				<input type="text" ng-model="formTodoText" ng-model-instant>
-				{{formTodoText}}
+				
+				<button class="btn btn-info" ng-click="addTodo()"><i class="glyphicon glyphicon-plus"></i> Add</button>
+				
 			</form>
 
-			<button class="btn btn-info" ng-click="addTodo()"><i class="glyphicon glyphicon-plus"></i> Add</button>
 			
+
 			<button class="btn btn-danger" ng-click="clearCompleted()"><i class="glyphicon glyphicon-trash"></i> Clear Completed</button>
 
 		</div>
